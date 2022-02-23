@@ -1,0 +1,323 @@
+html,body{
+    margin: 0px;
+    --nav-load-time: 50ms;
+    --nav-link-load-time: 50ms;
+    --article-load-delay: calc(var(--nav-load-time) + var(--nav-link-load-time));
+}
+
+.spacer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; 
+    bottom: 0; 
+    margin: auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    aspect-ratio: 1920/1080;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+    z-index: -100;
+}
+.layer1 {
+    background-image: url('layer1.svg');
+}
+
+.container {
+	 display: grid;
+	 grid-template-columns: repeat(2, 200px);
+	 justify-content: center;
+	 align-content: center;
+	 overflow: hidden;
+     width: 100vw;
+     height: 100vh;
+     animation: article-load 300ms ease-in calc(var(--article-load-delay) + 50ms);
+     animation-fill-mode: forwards;
+     transform: translateY(-20px);
+     opacity: 0;
+}
+
+.card   {
+    border-radius: 46px 46px 46px 46px;
+    -moz-border-radius: 46px 46px 46px 46px;
+    -webkit-border-radius: 46px 46px 46px 46px;
+    border: 0px solid #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    width: 25vw;
+    animation: article-load 250ms ease-in calc(var(--article-load-delay) + 250ms);
+    animation-fill-mode: forwards;
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.form-card   {
+    border-radius: 46px 46px 46px 46px;
+    -moz-border-radius: 46px 46px 46px 46px;
+    -webkit-border-radius: 46px 46px 46px 46px;
+    border: 0px solid #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    width: 25vw;
+
+    animation: article-load 200ms ease-in calc(var(--article-load-delay) + 200ms);
+}
+
+.username-field {
+    margin-bottom: 2vw;
+    height: 5vh;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #524A4E;
+	background-color: rgba(218, 218, 218, 0.15);
+	color: #2C3333;
+	position: relative;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.username-field:focus {
+    outline: var(--toggleOutlineWidthFocus, 2px) solid var(--toggleOutlineColorFocus, currentColor);
+    outline-offset: var(--toggleOutlineOffsetFocus, 5px);
+}
+
+.password-field {
+    margin-bottom: 1.5vw;
+    height: 5vh;
+    background-color: #fbfbfb;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #524A4E;
+	background-color: rgba(218, 218, 218, 0.15);
+	color: #2C3333;
+	position: relative;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.password-field:focus {
+    outline: var(--toggleOutlineWidthFocus, 2px) solid var(--toggleOutlineColorFocus, currentColor);
+    outline-offset: var(--toggleOutlineOffsetFocus, 5px);
+}
+
+h1 {
+    text-align: center;
+    color: #524A4E;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.login-button {
+    margin-top: 2.5vw;
+
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #D47AE8;
+    color: #ffffff;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 30px;
+}
+
+.signup-button {
+    border: none;
+    padding: 1vw 3vh;
+    margin: 0;
+    text-decoration: none;
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 30px;
+}
+
+button:hover,
+button:focus {
+    background: #a345b8;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+/*
+    checkbox animation credits: https://codepen.io/melnik909/pen/YjGZqQ
+*/
+
+.toggle{
+    --uiToggleSize: var(--toggleSize, 1.25rem);
+    --uiToggleBorderWidth: var(--toggleBorderWidth, 2px);
+    --uiToggleColor: var(--toggleColor, #222);
+  
+    display: var(--toggleDisplay, inline-flex);
+    position: relative;
+    margin-bottom: 1vw;
+  }
+  
+  .toggle__input{
+    /*
+    The pattern by Sara Soueidan https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/
+    */
+    width: var(--uiToggleSize);
+    height: var(--uiToggleSize);
+    opacity: 0;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+  
+  .toggle__label{
+    display: inline-flex;
+    min-height: var(--uiToggleSize);
+    padding-left: calc(var(--uiToggleSize) + var(--toggleIndent, .4em));
+  }
+  
+  .toggle__input:not(:disabled) ~ .toggle__label{
+    cursor: pointer;
+  }
+  
+  .toggle__label::after{
+    content: "";
+    box-sizing: border-box;  
+    width: 1em;
+    height: 1em;
+    font-size: var(--uiToggleSize); /* 1 */
+  
+    background-color: transparent;
+    border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
+  
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  
+  .toggle__input:checked ~ .toggle__label::after{
+    background-color: var(--uiToggleColor);
+  }
+  
+  .toggle__text{
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'Noto Sans', sans-serif;
+    color: #2C3333;
+  }
+  
+  .toggle__label::before{
+    content: "";
+    width: 0;
+    height: 0;
+    font-size: var(--uiToggleSize); /* 1 */
+  
+    border-left-width: 0;
+    border-bottom-width: 0;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-color: var(--toggleArrowColor, #fff);
+  
+    position: absolute;
+    top: .5428em;
+    left: .25em;
+    z-index: 3;
+  
+    transform-origin: left top;
+    transform: rotate(-40deg) skew(10deg);
+  }
+  
+  .toggle__input:checked ~ .toggle__label::before{
+    --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
+  
+    width: .4em;
+    height: .2em;
+    border-left-width: var(--uiToggleArrowWidth);
+    border-bottom-width: var(--uiToggleArrowWidth);
+  }
+  
+  .toggle:focus-within{
+    outline: var(--toggleOutlineWidthFocus, 3px) solid var(--toggleOutlineColorFocus, currentColor);
+    outline-offset: var(--toggleOutlineOffsetFocus, 5px);
+  }
+  
+  .toggle__input:disabled ~ .toggle__label{
+    opacity: var(--toggleOpacityDisabled, .24);
+    cursor: var(--toggleCursorDisabled, not-allowed);
+    user-select: none;
+  }
+  
+  .toggle__input:not(:disabled) ~ .toggle__label::before{
+    will-change: width, height;
+    opacity: 0;
+  }
+  
+  .toggle__input:not(:disabled):checked ~ .toggle__label::before{
+    opacity: 1;
+    transition: opacity .1s ease-out .25s, width .1s ease-out .5s, height .2s ease-out .3s;
+  }
+  
+  .toggle__input:not(:disabled) ~ .toggle__label::after{
+    will-change: background-color;
+    transition: background-color .2s ease-out;
+  }
+
+/*
+    checkbox animation credits: https://codepen.io/melnik909/pen/YjGZqQ
+*/
+
+  .line {
+	margin: 32px 0px 0px;
+	flex: 1 1 0%;
+	border-top: 1px solid rgb(0, 0, 0);
+}
+
+#login-card {
+    display: none;
+  }
+
+/*
+keyframe animations blep
+*/
+
+@keyframes container-load {
+  0% {
+    transform: scale(0);
+  }
+
+  90% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes article-load {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
