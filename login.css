@@ -25,7 +25,7 @@ html,body{
 }
 
 .container {
-	 display: grid;
+	 display: flex;
 	 grid-template-columns: repeat(2, 200px);
 	 justify-content: center;
 	 align-content: center;
@@ -47,11 +47,12 @@ html,body{
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    width: 25vw;
+    width: 100vw;
     animation: article-load 250ms ease-in calc(var(--article-load-delay) + 250ms);
     animation-fill-mode: forwards;
     transform: translateY(-20px);
     opacity: 0;
+    align-items: center;
 }
 
 .form-card   {
@@ -63,7 +64,7 @@ html,body{
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    width: 25vw;
+    width: 40vw;
 
     animation: article-load 200ms ease-in calc(var(--article-load-delay) + 200ms);
 }
@@ -112,7 +113,7 @@ h1 {
 
     border: none;
     padding: 1rem 2rem;
-    margin: 0;
+    margin: 15px 0px 0px 0px;
     text-decoration: none;
     background: #D47AE8;
     color: #ffffff;
@@ -127,20 +128,21 @@ h1 {
 }
 
 .signup-button {
-    border: none;
-    padding: 1vw 3vh;
-    margin: 0;
-    text-decoration: none;
-    background: #000000;
-    color: #ffffff;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: 250ms ease-in-out, transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border-radius: 30px;
+  margin-top: 2.5vw;
+  border: none;
+  padding: 1rem 1rem;
+  margin: 0;
+  text-decoration: none;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 30px;
 }
 
 button:hover,
@@ -161,15 +163,15 @@ button:active {
     checkbox animation credits: https://codepen.io/melnik909/pen/YjGZqQ
 */
 
-.toggle{
-    --uiToggleSize: var(--toggleSize, 1.25rem);
-    --uiToggleBorderWidth: var(--toggleBorderWidth, 2px);
-    --uiToggleColor: var(--toggleColor, #222);
-  
-    display: var(--toggleDisplay, inline-flex);
-    position: relative;
-    margin-bottom: 1vw;
-  }
+.toggle {
+	--uiToggleSize: var(--toggleSize, 2rem);
+	--uiToggleBorderWidth: var(--toggleBorderWidth, 2px);
+	--uiToggleColor: var(--toggleColor, #222);
+	display: var(--toggleDisplay, flex);
+	position: relative;
+	margin: 1vh 1vh 2vh 1vh;
+	align-items: center;
+}
   
   .toggle__input{
     /*
@@ -284,7 +286,6 @@ button:active {
 
   .line {
 	margin: 32px 0px 0px;
-	flex: 1 1 0%;
 	border-top: 1px solid rgb(0, 0, 0);
 }
 
@@ -321,3 +322,4 @@ keyframe animations blep
     opacity: 1;
   }
 }
+
