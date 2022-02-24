@@ -15,9 +15,9 @@
     <div class="spacer layer1"></div>
     <div class="container">
         <div id="signin-card" class="card">
-            <H1>Sign in</H1>
             <form id="form" class="form-card">
-                <input class="username-field" placeholder="Username" type="text" required>
+              <H1>Sign in</H1>
+                <input class="username-field" placeholder="Username" type="username" required>
                 <input id="myInput" class="password-field" placeholder="Password" type="password" minlength="8" required>
                 <label class="toggle">
                     <input class="toggle__input" type="checkbox" onclick="myFunction()">
@@ -26,16 +26,14 @@
                     </span>
                   </label>
                 <button class="login-button" type="submit">Login</button>
+                <hr class="line">
+                <h1>Don't have an account?</h1>
+                <button class="signup-button" id="Button1" type="button" value="Click" onclick="switchVisible();">Sign up</button>
               </form>
-            
-              <hr class="line">
-            
-              <h1>Don't have an account?</h1>
-              <button class="signup-button" id="Button1" type="button" value="Click" onclick="switchVisible();">Sign up</button>
         </div>
         <div id="login-card" class="card">
-            <H1>Sign up</H1>
             <form id="form" class="form-card">
+              <H1>Sign up</H1>
                 <input class="username-field" placeholder="Email" type="email" required>
                 <input class="username-field" placeholder="Username" type="text" required>
                 <input id="myInput" class="password-field" placeholder="Password" type="password" minlength="8" required>
